@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'kinect/css/bootstrap.min.css' %}">
+</head>
+<body>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h1>KinectGoleiroAPI</h1>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="float-md-right">
+                {% if user.is_authenticated %}
+                    Você está logado como: {{ user.first_name }}
+                    <p><a href="{% url 'logout' %}">Log Out</a></p>
+                {% else %}
+                    <p>Você não está logado.</p>
+                    <li><a href="{% url 'logintreinador' %}">Sou Treinador</a><a href="{% url 'cadastrotreinador' %}">(Novo)</a></li>
+                    <li><a href="{% url 'loginatleta' %}">Sou Atleta</a><a href="{% url 'cadastroatleta' %}">(Novo)</a></li>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-8">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

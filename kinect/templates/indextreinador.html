@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+      <h1 class="mt-2">Menu Principal - Treinador</h1>
+      <hr class="mt-0 mb-4">
+      <div class="container">
+        <p>Seja bem vindo ao sistema da KinectGoleiroAPI!</p>
+        <p>Selecione uma ação:</p>
+        <ul>
+          <li><a href="{% url 'registrartreino' %}">Registrar um novo treino a um atleta(Lista de Atletas)</a></li>
+          <li><a href="{% url 'registrartreinoviaid' %}">Registrar um novo treino a um atleta(Por ID do Atleta)</a></li>
+          <li><a href="{% url 'treinadortreinos' %}">Ver meus treinos</a></li>
+          <li><a href="{% url 'registraravaliacaotreino' %}">Adicionar avaliação a um treino(Com ID do Treinamento)</a></li>
+        </ul>
+      </div>
+  </form>
+{% endblock %}
