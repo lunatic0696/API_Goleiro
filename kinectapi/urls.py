@@ -37,6 +37,7 @@ urlpatterns = [
     path('api/treinos/', TreinoList.as_view(), name='treinolist'),
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+    #path('api/token/', views.obtain_auth_token(), name='get_token'),
     path('api/populardb/', PopularDB.as_view()),
     path('api/makesessao/<int:treinoid>', MakeSessao.as_view(), name='makesessao'),
     path('api/maketempo/<int:sessaoid>', MakeTempo.as_view(), name='maketempo'),

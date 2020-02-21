@@ -34,7 +34,7 @@ class SessaoSerializer(serializers.ModelSerializer):
     user = serializers.SlugRelatedField(read_only=True, slug_field="username")
     class Meta:
         model = Sessao
-        fields =('id', 'user', 'dt_realizada', 'treino', 'exercicio')
+        fields =('id', 'user', 'dt_realizada', 'treino')
 
 class TempoSerializer(serializers.ModelSerializer):
     user = serializers.SlugRelatedField(read_only=True, slug_field="username")

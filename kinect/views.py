@@ -113,7 +113,8 @@ class MakeSessao(APIView):
     def post(self, request, treinoid):
         treino = Treino.objects.get(id=treinoid)
         #exercicio = Exercicio.objects.get(id=exerid)
-        sessao = Sessao(treino=treino, dt_realizada=datetime.now())
+        atleta = treino.atleta
+        sessao = Sessao(treino=treino, atleta=atleta ,dt_realizada=datetime.now())
         sessao.save()
         serializer_class = SessaoSerializer(sessao, many=False)
         return Response(serializer_class.data)
